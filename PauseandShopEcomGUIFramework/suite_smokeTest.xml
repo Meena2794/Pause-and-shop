@@ -8,7 +8,6 @@
 	</groups>
   <test thread-count="5" name="Test">
     <classes>
-		<class name="com.pauseandshop.ecom.userTest.AddWishlist"/>
       <class name="com.pauseandshop.ecom.adminTest.CreateCategoryTest"/>
     </classes>
   </test> <!-- Test -->

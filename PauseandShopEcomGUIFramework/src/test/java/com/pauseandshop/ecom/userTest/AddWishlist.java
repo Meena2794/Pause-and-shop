@@ -14,7 +14,6 @@ import com.pauseandshop.ecom.objectrepository.utility.HomePage;
 import com.pauseandshop.ecom.objectrepository.utility.MyWishListPage;
 import com.pauseandshop.ecom.objectrepository.utility.UserloginPage;
 
-@Listeners(com.pauseandshop.ecom.generic.listenerutility.listimpclass.class)
 public class AddWishlist extends BaseClass {
 	@Test(groups = "smokeTest")
 	public void AddProduct2Wishlisht() throws Throwable, IOException {
@@ -49,7 +48,7 @@ public class AddWishlist extends BaseClass {
 		soft.assertTrue(actprod.contains(productname));
 		soft.assertAll();
 		Thread.sleep(2000);
-		hp.logout();
+		wlib.waitForElementpresent(driver, hp.getLogoutlink());
 	}
 
 	@Test(groups = "regressionTest")

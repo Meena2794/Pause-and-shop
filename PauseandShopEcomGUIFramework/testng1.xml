@@ -7,6 +7,7 @@
   <test thread-count="5" name="Test">
     <classes>
        <class name="com.pauseandshop.ecom.userTest.AddWishlist"/>
+       <class name="com.pauseandshop.ecom.adminTest.UpdateCategoryTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
