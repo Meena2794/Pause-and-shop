@@ -12,7 +12,7 @@ public class HomePage {
 	WebDriver driver;
 
 	public HomePage(WebDriver driver) {
-		this.driver = driver;
+		//this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -39,7 +39,7 @@ public class HomePage {
 	@FindBy(xpath="//li//a[@href='my-wishlist.php']")
 	private WebElement wishlistlink;
 	
-	@FindBy(xpath="//li//a[@href='logout.php']'")
+	@FindBy(xpath="//li//a[@href='logout.php']")
 	private WebElement logoutlink;
 	
 	@FindBy(xpath="//span[text()='Track Order']")
@@ -83,7 +83,10 @@ public class HomePage {
 		return wishlisticon;
 	}
 	
-	
+	public void logout() {
+		wu.scrollToElementjs(logoutlink, driver);
+		logoutlink.click();
+	}
 
 
 }

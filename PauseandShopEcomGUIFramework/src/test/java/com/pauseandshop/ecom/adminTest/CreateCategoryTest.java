@@ -53,7 +53,7 @@ public class CreateCategoryTest extends BaseClass {
 	
 		
 		// read test script data from Excel file
-		String category = eLib.getDataFromExcel("category", 1, 0).toString();
+//		String category = eLib.getDataFromExcel("category", 1, 0).toString();
 		String subcat = eLib.getDataFromExcel("category", 1, 2).toString() + jLib.getRandomNumber();
 		driver.get(URL);
 		HomePage hp = new HomePage(driver);

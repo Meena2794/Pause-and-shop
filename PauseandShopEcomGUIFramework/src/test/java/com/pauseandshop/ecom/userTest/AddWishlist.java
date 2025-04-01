@@ -6,14 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.pauseandshop.ecom.baseutility.BaseClass;
 import com.pauseandshop.ecom.objectrepository.utility.HomePage;
 import com.pauseandshop.ecom.objectrepository.utility.MyWishListPage;
 import com.pauseandshop.ecom.objectrepository.utility.UserloginPage;
 
+@Listeners(com.pauseandshop.ecom.generic.listenerutility.listimpclass.class)
 public class AddWishlist extends BaseClass {
 	@Test(groups = "smokeTest")
 	public void AddProduct2Wishlisht() throws Throwable, IOException {
@@ -25,6 +26,7 @@ public class AddWishlist extends BaseClass {
 		String Expectedwishlsttxt = eLib.getDataFromExcel("track", 7, 0);
 		driver.get(URL);
 //	Click on User login button
+		wlib.waitForPageToLoad(driver);
 		HomePage hp = new HomePage(driver);
 		hp.getLoginLink().click();
 //	Enter the valid user name,the valid password and click on login button
@@ -46,6 +48,8 @@ public class AddWishlist extends BaseClass {
 		SoftAssert soft = new SoftAssert();
 		soft.assertTrue(actprod.contains(productname));
 		soft.assertAll();
+		Thread.sleep(2000);
+		hp.logout();
 	}
 
 	@Test(groups = "regressionTest")
@@ -57,6 +61,7 @@ public class AddWishlist extends BaseClass {
 		String msg = eLib.getDataFromExcel("track", 1, 0);
 		// Open the brower and Enter the URL
 		driver.get(URL);
+		wlib.waitForPageToLoad(driver);
 //	Click on User login button
 		HomePage hp = new HomePage(driver);
 		hp.getLoginLink().click();
@@ -78,14 +83,16 @@ public class AddWishlist extends BaseClass {
 		driver.findElement(By.xpath("//button[text()='Track']")).submit();
 		Thread.sleep(500);
 		driver.findElement(By.xpath("//a[@href='javascript:void(0);']")).click();
-		wlib.switchToTabonTitle(driver, "track-order.php?oid=132");
+		wlib.switchToTabonurl(driver, "track-order.php?oid=132");
 		String actordertrackdetail = driver.findElement(By.xpath("//b[text()='Order Tracking Details !']")).getText();
 		Thread.sleep(3000);
 		System.out.println(actordertrackdetail);
 		SoftAssert soft = new SoftAssert();
 		soft.assertTrue(actordertrackdetail.trim().equals(msg));
 		soft.assertAll();
-
+		wlib.switchToTabonurl(driver, "order-details.php");
+		wlib.waitForElementpresent(driver, hp.getLogoutlink());
+		
 	}
 
 }

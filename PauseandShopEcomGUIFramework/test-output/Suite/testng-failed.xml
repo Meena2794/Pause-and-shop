@@ -3,17 +3,6 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.pauseandshop.ecom.adminTest.CreateCategoryTest">
-        <methods>
-          <include name="configBC"/>
-          <include name="configBS"/>
-          <include name="createCategory"/>
-          <include name="configAC"/>
-          <include name="configAS"/>
-          <include name="configBM"/>
-          <include name="configAM"/>
-        </methods>
-      </class> <!-- com.pauseandshop.ecom.adminTest.CreateCategoryTest -->
       <class name="com.pauseandshop.ecom.userTest.AddWishlist">
         <methods>
           <include name="AddProduct2Wishlisht"/>
@@ -26,6 +15,18 @@
           <include name="configAM"/>
         </methods>
       </class> <!-- com.pauseandshop.ecom.userTest.AddWishlist -->
+      <class name="com.pauseandshop.ecom.adminTest.CreateCategoryTest">
+        <methods>
+          <include name="InsertProducttest"/>
+          <include name="configBC"/>
+          <include name="configBS"/>
+          <include name="createCategory"/>
+          <include name="configAC"/>
+          <include name="configAS"/>
+          <include name="configBM"/>
+          <include name="configAM"/>
+        </methods>
+      </class> <!-- com.pauseandshop.ecom.adminTest.CreateCategoryTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
